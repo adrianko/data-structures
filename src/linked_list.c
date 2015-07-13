@@ -40,8 +40,7 @@ int main() {
     listAdd(list, 3);
     printf("%d\n", list->next->value);
     listAdd(list, 5);
-    printf("%d\n", list->next->next->value);
-    
+    printf("%d\n", list->next->next->value); 
     
     return 0;
 }
