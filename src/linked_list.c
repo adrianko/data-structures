@@ -46,12 +46,10 @@ int main() {
     Node *n = list->next;
     int i = 0;
 
-    while (n->next != NULL) {
+    while (n != NULL) {
         printf("%d: %d\n", i++, n->value);
         n = n->next;
     }
-
-    printf("%d: %d\n", i, n->value);
 
     return 0;
 }
