@@ -10,14 +10,14 @@ typedef struct list {
     struct node *next;
 } List;
 
-List* listNew() {
+List* list_new() {
     List *list = malloc(sizeof(List));
     list->next = NULL;
 
     return list;
 }
 
-void listAdd(List *list, int element) {
+void list_add(List *list, int element) {
     Node *next = malloc(sizeof(Node));
     next->value = element;
     next->next = NULL;
@@ -36,12 +36,12 @@ void listAdd(List *list, int element) {
 }
 
 int main() {
-    List *list = listNew();
-    listAdd(list, 3);
-    listAdd(list, 5);
-    listAdd(list, 7);
-    listAdd(list, 9);
-    listAdd(list, 11);
+    List *list = list_new();
+    list_add(list, 3);
+    list_add(list, 5);
+    list_add(list, 7);
+    list_add(list, 9);
+    list_add(list, 11);
 
     Node *n = list->next;
     int i = 0;
