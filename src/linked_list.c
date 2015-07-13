@@ -40,6 +40,8 @@ int main() {
     listAdd(list, 3);
     listAdd(list, 5);
     listAdd(list, 7);
+    listAdd(list, 9);
+    listAdd(list, 11);
 
     Node *n = list->next;
     int i = 0;
