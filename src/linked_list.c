@@ -18,10 +18,19 @@ List* listNew() {
 }
 
 void listAdd(List *list, int element) {
-    if (list->next == NULL) {
-        Node *next = malloc(sizeof(Node));
-        next->value = element;
-        next->next = NULL;
+    Node *next = malloc(sizeof(Node));
+    next->value = element;
+    next->next = NULL;
+    
+    if (list->next != NULL) {
+        Node *last = list->next;
+
+        while (last->next != NULL) {
+            last = last->next;
+        }
+
+        last->next = next;
+    } else {
         list->next = next;
     }
 }
@@ -30,6 +39,8 @@ int main() {
     List *list = listNew();
     listAdd(list, 3);
     printf("%d\n", list->next->value);
+    listAdd(list, 5);
+    printf("%d\n", list->next->next->value);
     
     
     return 0;
