@@ -10,6 +10,10 @@ typedef struct list {
     struct node *next;
 } List;
 
+List* newList() {
+    return malloc(sizeof(List));
+}
+
 int main() {
     Node *head = malloc(sizeof(Node));
     head->value = 5;
