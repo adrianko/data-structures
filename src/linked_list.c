@@ -8,6 +8,7 @@ typedef struct node {
 
 typedef struct list {
     struct node *next;
+    struct node *tail;
 } List;
 
 List* list_new() {
@@ -21,18 +22,14 @@ void list_add(List *list, int element) {
     Node *next = malloc(sizeof(Node));
     next->value = element;
     next->next = NULL;
-    
+
     if (list->next != NULL) {
-        Node *last = list->next;
-
-        while (last->next != NULL) {
-            last = last->next;
-        }
-
-        last->next = next;
+        list->tail->next = next;
     } else {
         list->next = next;
     }
+
+    list->tail = next;
 }
 
 int main() {
