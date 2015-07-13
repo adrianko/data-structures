@@ -7,8 +7,15 @@ typedef struct node {
 } Node;
 
 int main() {
-    Node *n = malloc(sizeof(Node));
-    n->value = 5;
-    printf("%d\n", n->value);
+    Node *head = malloc(sizeof(Node));
+    head->value = 5;
+    printf("%d\n", head->value);
+
+    Node *next = malloc(sizeof(Node));
+    next->value = 7;
+    
+    head->next = next;
+
+    printf("%d\n", head->next->value);
     return 0;
 }
