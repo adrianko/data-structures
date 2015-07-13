@@ -38,9 +38,18 @@ void listAdd(List *list, int element) {
 int main() {
     List *list = listNew();
     listAdd(list, 3);
-    printf("%d\n", list->next->value);
     listAdd(list, 5);
-    printf("%d\n", list->next->next->value); 
-    
+    listAdd(list, 7);
+
+    Node *n = list->next;
+    int i = 0;
+
+    while (n->next != NULL) {
+        printf("%d: %d\n", i++, n->value);
+        n = n->next;
+    }
+
+    printf("%d: %d\n", i, n->value);
+
     return 0;
 }
