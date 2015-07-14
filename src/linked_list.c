@@ -123,6 +123,7 @@ int main() {
     list_remove_index(list2, 0);
 
     printf("Contains 9: %d\n", list_contains(list, 9));
+    printf("Contains 7: %d\n", list_contains(list, 7));
 
     return 0;
 }
