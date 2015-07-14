@@ -78,6 +78,24 @@ void list_remove_index(List *list, int index) {
     rm = NULL;
 }
 
+int list_contains(List *list, int element) {
+    if (list->size == 0) {
+        return 0;
+    }
+
+    Node *n = list->next;
+
+    while (n != NULL) {
+        if (n->value == element) {
+            return 1;
+        }
+
+        n = n->next;
+    }
+
+    return 0;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
@@ -103,6 +121,8 @@ int main() {
     printf("Size: %d\n", list2->size);
     list_printf(list2);
     list_remove_index(list2, 0);
+
+    printf("Contains 9: %d\n", list_contains(list, 9));
 
     return 0;
 }
