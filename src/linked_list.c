@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "linked_list.h"
 
 List* list_new() {
@@ -78,22 +79,22 @@ void list_remove_index(List *list, int index) {
     rm = NULL;
 }
 
-int list_contains(List *list, int element) {
+bool list_contains(List *list, int element) {
     if (list->size == 0) {
-        return 0;
+        return false;
     }
 
     Node *n = list->next;
 
     while (n != NULL) {
         if (n->value == element) {
-            return 1;
+            return true;
         }
 
         n = n->next;
     }
 
-    return 0;
+    return false;
 }
 
 int main() {
@@ -122,8 +123,8 @@ int main() {
     list_printf(list2);
     list_remove_index(list2, 0);
 
-    printf("Contains 9: %d\n", list_contains(list, 9));
-    printf("Contains 7: %d\n", list_contains(list, 7));
+    printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
+    printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
 
     return 0;
 }
