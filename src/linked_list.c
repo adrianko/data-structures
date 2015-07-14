@@ -40,18 +40,26 @@ void list_remove_index(List *list, int index) {
         return;
     }
 
-    int i = 0;
-    Node *n = list->next;
-    Node *p = NULL;
+    if (index == (list->size - 1)) {
 
-    while (i <= index) {
-        if (i == index) {
-            p->next = n->next;
+    }
+
+    if (index == 0) {
+        list->next = list->next->next;
+    } else {
+        int i = 0;
+        Node *n = list->next;
+        Node *p = NULL;
+
+        while (i <= index) {
+            if (i == index) {
+                p->next = n->next;
+            }
+
+            p = n;
+            n = n->next;
+            i++;
         }
-
-        p = n;
-        n = n->next;
-        i++;
     }
 
     list->size--;
@@ -68,7 +76,7 @@ int main() {
     printf("Size: %d\n", list->size);
     list_printf(list);
 
-    list_remove_index(list, 2);
+    list_remove_index(list, 0);
 
     printf("Size: %d\n", list->size);
     list_printf(list);
