@@ -92,6 +92,7 @@ int main() {
     list_remove_index(list2, 0);
     printf("Size: %d\n", list2->size);
     list_printf(list2);
+    list_remove_index(list2, 0);
 
     return 0;
 }
