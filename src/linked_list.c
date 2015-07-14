@@ -9,11 +9,13 @@ typedef struct node {
 typedef struct list {
     struct node *next;
     struct node *tail;
+    int size;
 } List;
 
 List* list_new() {
     List *list = malloc(sizeof(List));
     list->next = NULL;
+    list->size = 0;
 
     return list;
 }
@@ -30,6 +32,7 @@ void list_add(List *list, int element) {
     }
 
     list->tail = next;
+    list->size++;
 }
 
 int main() {
@@ -40,6 +43,7 @@ int main() {
     list_add(list, 9);
     list_add(list, 11);
 
+    printf("Size: %d\n", list->size);
     Node *n = list->next;
     int i = 0;
 
