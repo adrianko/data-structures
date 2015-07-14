@@ -13,7 +13,6 @@ OBJS    := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 CFLAGS  = -Wall
 LDFLAGS =
 
-
 all: $(APP)
 	
 run: 
