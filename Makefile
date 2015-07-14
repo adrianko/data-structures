@@ -1,24 +1,24 @@
-CC		= gcc
+CC=gcc
 
-BINDIR 	= bin
-SRCDIR  = src
-OBJDIR  = obj
+BINDIR=bin
+SRCDIR=src
+OBJDIR=obj
 
-APP     = $(BINDIR)/linked_list
+APP=$(BINDIR)/linked_list
 
-SRCS    := $(shell find $(SRCDIR) -name '*.c')
-SRCDIRS := $(shell find . -name '*.c' -exec dirname {} \; | uniq)
-OBJS    := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
+SRCS:=$(shell find $(SRCDIR) -name '*.c')
+SRCDIRS:=$(shell find . -name '*.c' -exec dirname {} \; | uniq)
+OBJS:=$(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 
-CFLAGS  = -Wall
-LDFLAGS =
+CFLAGS=-Wall
+LDFLAGS=
 
 all: $(APP)
 	
 run: 
 	$(APP) 
 
-$(APP) : buildrepo $(OBJS)
+$(APP): buildrepo $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) -o $@
 
 $(OBJDIR)/%.o: %.c
