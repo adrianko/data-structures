@@ -11,5 +11,6 @@ typedef struct list {
 
 List* list_new();
 void list_add(List *list, int element);
+void list_insert(List *list, int index, int element);
 void list_printf(List *list);
 void list_remove_index(List *list, int index);
