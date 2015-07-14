@@ -74,6 +74,7 @@ void list_remove_index(List *list, int index) {
 
     list->size--;
     free(rm);
+    rm = NULL;
 }
 
 int main() {
