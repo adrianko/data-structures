@@ -1,16 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct node {
-    int value;
-    struct node *next;
-} Node;
-
-typedef struct list {
-    struct node *next;
-    struct node *tail;
-    int size;
-} List;
+#include "linked_list.h"
 
 List* list_new() {
     List *list = malloc(sizeof(List));
