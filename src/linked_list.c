@@ -40,7 +40,7 @@ void list_remove_index(List *list, int index) {
         return;
     }
 
-    Node *rm = NULL;
+    Node *rm = malloc(sizeof(*rm));
 
     if (index == 0 && list->size == 1) {
         rm = list->next;
