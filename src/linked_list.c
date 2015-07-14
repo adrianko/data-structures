@@ -35,6 +35,28 @@ void list_printf(List *list) {
     }
 }
 
+void list_remove_index(List *list, int index) {
+    if (index >= list->size) {
+        return;
+    }
+
+    int i = 0;
+    Node *n = list->next;
+    Node *p = NULL;
+
+    while (i <= index) {
+        if (i == index) {
+            p->next = n->next;
+        }
+
+        p = n;
+        n = n->next;
+        i++;
+    }
+
+    list->size--;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
@@ -42,6 +64,11 @@ int main() {
     list_add(list, 7);
     list_add(list, 9);
     list_add(list, 11);
+
+    printf("Size: %d\n", list->size);
+    list_printf(list);
+
+    list_remove_index(list, 2);
 
     printf("Size: %d\n", list->size);
     list_printf(list);
