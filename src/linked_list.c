@@ -64,6 +64,7 @@ void list_remove_index(List *list, int index) {
                 }
 
                 rm = n;
+                break;
             }
 
             p = n;
@@ -88,7 +89,8 @@ int main() {
     printf("Size: %d\n", list->size);
     list_printf(list);
 
-    list_remove_index(list, 4);
+    list_remove_index(list, 2);
+    list_remove_index(list, 3);
 
     printf("Size: %d\n", list->size);
     list_printf(list);
