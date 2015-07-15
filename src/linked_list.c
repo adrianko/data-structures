@@ -102,6 +102,14 @@ int list_get(List *list, int index) {
         return -1;
     }
 
+    if (index == 0) {
+        return list_get_first(list);
+    }
+
+    if (index == (list->size - 1)) {
+        return list_get_last(list);
+    }
+
     int element = 0;
     int i = 0;
     Node *n = list->next;
@@ -164,7 +172,7 @@ int main() {
     printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
     printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
 
-    printf("List index 1: %d\n", list_get(list, 1));
+    printf("List index 2: %d\n", list_get(list, 2));
 
     return 0;
 }
