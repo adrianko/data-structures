@@ -26,6 +26,25 @@ void list_add(List *list, int element) {
     list->size++;
 }
 
+void list_set(List *list, int index, int element) {
+    if (index >= list->size || index < 0) {
+        return;
+    }
+
+    Node *n = list->next;
+    int i = 0;
+
+    while (n != NULL) {
+        if (i == index) {
+            n->value = element;
+            break;
+        }
+
+        i++;
+        n = n->next;
+    }
+}
+
 void list_printf(List *list) {
     Node *n = list->next;
     int i = 0;
@@ -160,7 +179,7 @@ int main() {
 
     list_remove_index(list, 2);
     list_remove_index(list, 3);
-
+    list_set(list, 2, 5);
     printf("Size: %d\n", list->size);
     list_printf(list);
 
