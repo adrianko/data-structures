@@ -37,7 +37,7 @@ void list_printf(List *list) {
 }
 
 void list_remove_index(List *list, int index) {
-    if (index >= list->size) {
+    if (index >= (list->size + 1)) {
         return;
     }
 
