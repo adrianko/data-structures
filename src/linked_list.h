@@ -18,3 +18,4 @@ bool list_contains(List *list, int element);
 int list_get(List *list, int index);
 int list_get_first(List *list);
 int list_get_last(List *list);
+bool list_is_empty(List *list);

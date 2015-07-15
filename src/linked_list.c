@@ -143,6 +143,10 @@ int list_get_last(List *list) {
     return list->tail->value;
 }
 
+bool list_is_empty(List *list) {
+    return list->size == 0;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
@@ -168,6 +172,7 @@ int main() {
     printf("Size: %d\n", list2->size);
     list_printf(list2);
     list_remove_index(list2, 0);
+    printf("List2 is empty: %s\n", list_is_empty(list2) ? "true" : "false");
 
     printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
     printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
