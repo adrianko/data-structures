@@ -16,3 +16,4 @@ void list_printf(List *list);
 void list_remove_index(List *list, int index);
 bool list_contains(List *list, int element);
 int list_get(List *list, int index);
+int list_get_first(List *list);
