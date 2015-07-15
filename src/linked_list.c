@@ -181,6 +181,10 @@ int list_index_of(List *list, int element) {
     return -1;
 }
 
+int list_size(List *list) {
+    return list->size;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
