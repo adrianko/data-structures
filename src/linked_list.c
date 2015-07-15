@@ -27,7 +27,7 @@ void list_add(List *list, int element) {
 }
 
 void list_set(List *list, int index, int element) {
-    if (index >= list->size || index < 0) {
+    if (index >= list_size(list) || index < 0) {
         return;
     }
 
@@ -56,17 +56,17 @@ void list_printf(List *list) {
 }
 
 void list_remove_index(List *list, int index) {
-    if (index >= list->size || index < 0) {
+    if (index >= list_size(list) || index < 0) {
         return;
     }
 
     Node *rm = malloc(sizeof(*rm));
 
-    if (index == 0 && list->size == 1) {
+    if (index == 0 && list_size(list) == 1) {
         rm = list->next;
         list->next = NULL;
         list->tail = NULL;
-    } else if (index == 0 && list->size > 1) {
+    } else if (index == 0 && list_size(list) > 1) {
         rm = list->next;
         list->next = list->next->next;
     } else {
@@ -76,7 +76,7 @@ void list_remove_index(List *list, int index) {
 
         while (i <= index) {
             if (i == index) {
-                if (index == (list->size - 1)) {
+                if (index == (list_size(list) - 1)) {
                     list->tail = p;
                     p->next = NULL;
                 } else {
@@ -99,7 +99,7 @@ void list_remove_index(List *list, int index) {
 }
 
 bool list_contains(List *list, int element) {
-    if (list->size == 0) {
+    if (list_size(list) == 0) {
         return false;
     }
 
@@ -117,7 +117,7 @@ bool list_contains(List *list, int element) {
 }
 
 int list_get(List *list, int index) {
-    if (index >= list->size || index < 0) {
+    if (index >= list_size(list) || index < 0) {
         return -1;
     }
 
@@ -147,7 +147,7 @@ int list_get(List *list, int index) {
 }
 
 int list_get_first(List *list) {
-    if (list->size == 0) {
+    if (list_size(list) == 0) {
         return -1;
     }
 
@@ -155,7 +155,7 @@ int list_get_first(List *list) {
 }
 
 int list_get_last(List *list) {
-    if (list->size == 0) {
+    if (list_size(list) == 0) {
         return -1;
     }
 
@@ -163,7 +163,7 @@ int list_get_last(List *list) {
 }
 
 bool list_is_empty(List *list) {
-    return list->size == 0;
+    return list_size(list) == 0;
 }
 
 int list_index_of(List *list, int element) {
@@ -186,6 +186,10 @@ int list_size(List *list) {
 }
 
 void list_insert(List *list, int index, int element) {
+    if (list_size(list) < index) {
+        return;
+    }
+
     if (list_size(list) == 0 && index == 0) {
         list_add(list, element);
         return;
