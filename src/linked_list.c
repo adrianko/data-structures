@@ -37,7 +37,7 @@ void list_printf(List *list) {
 }
 
 void list_remove_index(List *list, int index) {
-    if (index >= list->size) {
+    if (index >= list->size || index < 0) {
         return;
     }
 
@@ -98,7 +98,7 @@ bool list_contains(List *list, int element) {
 }
 
 int list_get(List *list, int index) {
-    if (index >= list->size) {
+    if (index >= list->size || index < 0) {
         return -1;
     }
 
