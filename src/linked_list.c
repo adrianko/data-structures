@@ -185,6 +185,16 @@ int list_size(List *list) {
     return list->size;
 }
 
+void list_insert(List *list, int index, int element) {
+    if (list_size(list) == 0 && index == 0) {
+        list_add(list, element);
+        return;
+    }
+
+    Node *new = malloc(sizeof(Node));
+    new->value = element;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
