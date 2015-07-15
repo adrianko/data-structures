@@ -20,3 +20,5 @@ int list_get_first(List *list);
 int list_get_last(List *list);
 bool list_is_empty(List *list);
 int list_index_of(List *list, int element);
+void list_insert(List *list, int index, int element);
+int list_size(List *list);
