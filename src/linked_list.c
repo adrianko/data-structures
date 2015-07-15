@@ -119,6 +119,14 @@ int list_get(List *list, int index) {
     return element;
 }
 
+int list_get_first(List *list) {
+    if (list->size == 0) {
+        return -1;
+    }
+
+    return list->next->value;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
