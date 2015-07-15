@@ -166,6 +166,21 @@ bool list_is_empty(List *list) {
     return list->size == 0;
 }
 
+int list_index_of(List *list, int element) {
+    Node *n = list->next;
+    int i = 0;
+
+    while (n != NULL) {
+        if (n->value == element) {
+            return i;
+        }
+
+        i++;
+    }
+
+    return -1;
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
