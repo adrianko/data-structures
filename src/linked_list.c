@@ -239,6 +239,10 @@ void list_clear(List *list) {
         free(n);
         n = next;
     }
+
+    list->size = 0;
+    list->next = NULL;
+    list->tail = NULL;
 }
 
 int main() {
