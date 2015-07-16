@@ -246,6 +246,7 @@ void list_clear(List *list) {
 }
 
 int main() {
+    // create new list and populate
     List *list = list_new();
     list_add(list, 3);
     list_add(list, 5);
@@ -253,26 +254,42 @@ int main() {
     list_add(list, 9);
     list_add(list, 11);
 
+    // check size and print elements
     printf("Size: %d\n", list_size(list));
     list_printf(list);
 
+    // remove by index 
     list_remove_index(list, 2);
     list_remove_index(list, 3);
+
+    // set at index, same list size
     list_set(list, 2, 5);
+
+    // insert at index increasing list size
     list_insert(list, 1, 7);
     printf("Size: %d\n", list_size(list));
     list_printf(list);
+
+    // check whether contains element
     printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
     printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
+
+    // get element at index
     printf("List index 2: %d\n", list_get(list, 2));
+
+    // empty list
     list_clear(list);
     printf("Size: %d\n", list_size(list));
-    
+
     printf("------------------------------\n");
+
+    // create new list
     List *list2 = list_new();
     list_add(list2, 1);
     printf("Size: %d\n", list_size(list2));
     list_printf(list2);
+
+    // remove by index when list size is 1
     list_remove_index(list2, 0);
     printf("Size: %d\n", list_size(list2));
     list_printf(list2);
