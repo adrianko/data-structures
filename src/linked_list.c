@@ -197,6 +197,27 @@ void list_insert(List *list, int index, int element) {
 
     Node *new = malloc(sizeof(Node));
     new->value = element;
+    new->next = NULL;
+    Node *next = list->next;
+    Node *prev = NULL;
+    int i = 0;
+
+    while (next != NULL) {
+        if (i == index) {
+            if (i == 0) {
+                new->next = list->next;
+                list->next = new;
+            } else {
+                new->next = prev->next;
+                prev->next = new;
+            }
+        }
+
+        prev = next;
+        next = next->next;
+        i++;
+    }
+
 }
 
 int main() {
@@ -213,6 +234,7 @@ int main() {
     list_remove_index(list, 2);
     list_remove_index(list, 3);
     list_set(list, 2, 5);
+    list_insert(list, 1, 7);
     printf("Size: %d\n", list->size);
     list_printf(list);
 
