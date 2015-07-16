@@ -245,6 +245,22 @@ void list_clear(List *list) {
     list->tail = NULL;
 }
 
+void list_reverse(List *list){
+    Node *current, *prev, *next;
+    current = list->next;
+    prev = NULL;
+
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    list->next = list->tail;
+    list->tail = prev;
+}
+
 int main() {
     // create new list and populate
     List *list = list_new();
@@ -267,6 +283,10 @@ int main() {
 
     // insert at index increasing list size
     list_insert(list, 1, 7);
+    printf("Size: %d\n", list_size(list));
+    list_printf(list);
+
+    list_reverse(list);
     printf("Size: %d\n", list_size(list));
     list_printf(list);
 
