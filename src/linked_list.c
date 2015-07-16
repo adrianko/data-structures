@@ -221,6 +221,26 @@ void list_insert(List *list, int index, int element) {
     list->size++;
 }
 
+void list_clear(List *list) {
+    if (list_is_empty(list)) {
+        return;
+    }
+
+    Node *n = list->next;
+    Node *next = NULL;
+
+    while (n != NULL) {
+        if (n->next != NULL) {
+            next = n->next;
+        } else {
+            next = NULL;
+        }
+
+        free(n);
+        n = next;
+    }
+}
+
 int main() {
     List *list = list_new();
     list_add(list, 3);
@@ -229,30 +249,31 @@ int main() {
     list_add(list, 9);
     list_add(list, 11);
 
-    printf("Size: %d\n", list->size);
+    printf("Size: %d\n", list_size(list));
     list_printf(list);
 
     list_remove_index(list, 2);
     list_remove_index(list, 3);
     list_set(list, 2, 5);
     list_insert(list, 1, 7);
-    printf("Size: %d\n", list->size);
+    printf("Size: %d\n", list_size(list));
     list_printf(list);
-
+    printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
+    printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
+    printf("List index 2: %d\n", list_get(list, 2));
+    list_clear(list);
+    printf("Size: %d\n", list_size(list));
+    
+    printf("------------------------------\n");
     List *list2 = list_new();
     list_add(list2, 1);
-    printf("Size: %d\n", list2->size);
+    printf("Size: %d\n", list_size(list2));
     list_printf(list2);
     list_remove_index(list2, 0);
-    printf("Size: %d\n", list2->size);
+    printf("Size: %d\n", list_size(list2));
     list_printf(list2);
     list_remove_index(list2, 0);
     printf("List2 is empty: %s\n", list_is_empty(list2) ? "true" : "false");
-
-    printf("Contains 9: %s\n", list_contains(list, 9) ? "true" : "false");
-    printf("Contains 7: %s\n", list_contains(list, 7) ? "true" : "false");
-
-    printf("List index 2: %d\n", list_get(list, 2));
 
     return 0;
 }
