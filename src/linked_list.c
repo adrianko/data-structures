@@ -218,6 +218,7 @@ void list_insert(List *list, int index, int element) {
         i++;
     }
 
+    list->size++;
 }
 
 int main() {
