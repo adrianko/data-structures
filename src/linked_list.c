@@ -282,6 +282,26 @@ int list_last_index_of(List *list, int element) {
     return index;
 }
 
+bool list_equals(List *list1, List *list2) {
+    if (list1->size != list2->size) {
+        return false;
+    }
+
+    Node *l1next = list1->next;
+    Node *l2next = list2->next;
+
+    while (l1next != NULL || l2next != NULL) {
+        if (l1next->value != l2next->value) {
+            return false;
+        }
+        
+        l1next = l1next->next;
+        l2next = l2next->next;
+    }
+
+    return true;
+}
+
 int main() {
     // create new list and populate
     List *list = list_new();
