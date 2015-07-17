@@ -24,3 +24,4 @@ void list_insert(List *list, int index, int element);
 int list_size(List *list);
 void list_clear(List *list);
 void list_reverse(List *list);
+int list_last_index_of(List *list, int element);
