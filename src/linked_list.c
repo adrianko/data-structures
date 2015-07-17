@@ -360,5 +360,24 @@ int main() {
     list_remove_index(list2, 0);
     printf("List2 is empty: %s\n", list_is_empty(list2) ? "true" : "false");
 
+    printf("------------------------------\n");
+    List *l1 = list_new();
+    list_add(l1, 3);
+    list_add(l1, 5);
+    list_add(l1, 7);
+
+    List *l2 = list_new();
+    list_add(l2, 3);
+    list_add(l2, 5);
+    list_add(l2, 7);
+
+    List *l3 = list_new();
+    list_add(l3, 3);
+    list_add(l3, 5);
+    list_add(l3, 5);
+
+    printf("L1, L2: %s\n", list_equals(l1, l2) ? "true" : "false");
+    printf("L1, L3: %s\n", list_equals(l1, l3) ? "true" : "false");
+
     return 0;
 }
