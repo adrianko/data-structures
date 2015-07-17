@@ -261,6 +261,26 @@ void list_reverse(List *list){
     list->tail = prev;
 }
 
+int list_last_index_of(List *list, int element) {
+    if (list_is_empty(list)) {
+        return -1;
+    }
+
+    Node *next = list->next;
+    int index = 0;
+    int i = 0;
+
+    while (next != NULL) {
+        if (next->value == element) {
+            index = i;
+        }
+
+        i++;
+    }
+
+    return index;
+}
+
 int main() {
     // create new list and populate
     List *list = list_new();
