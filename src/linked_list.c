@@ -276,6 +276,7 @@ int list_last_index_of(List *list, int element) {
         }
 
         i++;
+        next = next->next;
     }
 
     return index;
@@ -316,6 +317,9 @@ int main() {
 
     // get element at index
     printf("List index 2: %d\n", list_get(list, 2));
+
+    // get last index of
+    printf("Last index of 5: %d\n", list_last_index_of(list, 5));
 
     // empty list
     list_clear(list);
