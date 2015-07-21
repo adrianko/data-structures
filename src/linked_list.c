@@ -302,6 +302,18 @@ bool list_equals(List *list1, List *list2) {
     return true;
 }
 
+void list_add_all(List *dest, List *adding) {
+    if (list_is_empty(adding)) {
+        return;
+    }
+
+    Node *next = adding->next;
+
+    while (next != NULL) {
+        list_add(dest, next->value);
+    }
+}
+
 int main() {
     // create new list and populate
     List *list = list_new();
