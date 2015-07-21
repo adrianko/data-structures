@@ -311,6 +311,7 @@ void list_add_all(List *dest, List *adding) {
 
     while (next != NULL) {
         list_add(dest, next->value);
+        next = next->next;
     }
 }
 
@@ -390,6 +391,9 @@ int main() {
 
     printf("L1, L2: %s\n", list_equals(l1, l2) ? "true" : "false");
     printf("L1, L3: %s\n", list_equals(l1, l3) ? "true" : "false");
+
+    list_add_all(l1, l2);
+    list_printf(l1);
 
     return 0;
 }
