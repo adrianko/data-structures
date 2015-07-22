@@ -27,3 +27,4 @@ void list_reverse(List *list);
 int list_last_index_of(List *list, int element);
 bool list_equals(List *list1, List *list2);
 void list_add_all(List *dest, List *adding);
+void list_remove_element(List *list, int element);
