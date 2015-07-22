@@ -315,6 +315,18 @@ void list_add_all(List *dest, List *adding) {
     }
 }
 
+void list_remove_element(List *list, int element) {
+    if (list_is_empty(list)) {
+        return;
+    }
+
+    int index = list_index_of(list, element);
+    
+    if (index != -1) {
+        list_remove_index(list, index);
+    }
+}
+
 int main() {
     // create new list and populate
     List *list = list_new();
