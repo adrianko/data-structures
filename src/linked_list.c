@@ -402,24 +402,37 @@ int main() {
     printf("List2 is empty: %s\n", list_is_empty(list2) ? "true" : "false");
 
     printf("------------------------------\n");
+    printf("Create new list: l1\n");
     List *l1 = list_new();
+    printf("Add: l1 -> 3\n");
     list_add(l1, 3);
+    printf("Add: l1 -> 5\n");
     list_add(l1, 5);
+    printf("Add: l1 -> 7\n");
     list_add(l1, 7);
 
+    printf("Create new list: l2\n");
     List *l2 = list_new();
+    printf("Add: l2 -> 3\n");
     list_add(l2, 3);
+    printf("Add: l2 -> 5\n");
     list_add(l2, 5);
+    printf("Add: l2 -> 7\n");
     list_add(l2, 7);
 
+    printf("Create new list: l3\n");
     List *l3 = list_new();
+    printf("Add: l3 -> 3\n");
     list_add(l3, 3);
+    printf("Add: l3 -> 5\n");
     list_add(l3, 5);
+    printf("Add: l3 -> 5\n");
     list_add(l3, 5);
 
     printf("L1, L2: %s\n", list_equals(l1, l2) ? "true" : "false");
     printf("L1, L3: %s\n", list_equals(l1, l3) ? "true" : "false");
 
+    printf("Add all: l1 -> l2\n");
     list_add_all(l1, l2);
     list_printf(l1);
 
