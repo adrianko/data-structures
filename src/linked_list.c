@@ -329,11 +329,17 @@ void list_remove_element(List *list, int element) {
 
 int main() {
     // create new list and populate
+    printf("Create new list: list\n");
     List *list = list_new();
+    printf("Add: list -> 3\n");
     list_add(list, 3);
+    printf("Add: list -> 5\n");
     list_add(list, 5);
+    printf("Add: list -> 7\n");
     list_add(list, 7);
+    printf("Add: list -> 9\n");
     list_add(list, 9);
+    printf("Add: list -> 11\n");
     list_add(list, 11);
 
     // check size and print elements
@@ -341,17 +347,22 @@ int main() {
     list_printf(list);
 
     // remove by index 
+    printf("Remove by index: list -> 2\n");
     list_remove_index(list, 2);
+    printf("Remove by index: list -> 3\n");
     list_remove_index(list, 3);
 
     // set at index, same list size
+    printf("Set list index 2: 5\n");
     list_set(list, 2, 5);
 
     // insert at index increasing list size
+    printf("Insert to: list at index 1 -> 7\n");
     list_insert(list, 1, 7);
     printf("Size: %d\n", list_size(list));
     list_printf(list);
 
+    printf("Reverse: list\n");
     list_reverse(list);
     printf("Size: %d\n", list_size(list));
     list_printf(list);
@@ -367,21 +378,26 @@ int main() {
     printf("Last index of 5: %d\n", list_last_index_of(list, 5));
 
     // empty list
+    printf("Clear: list\n");
     list_clear(list);
     printf("Size: %d\n", list_size(list));
 
     printf("------------------------------\n");
 
     // create new list
+    printf("Create new list: list2\n");
     List *list2 = list_new();
+    printf("Add: list2 -> 1\n");
     list_add(list2, 1);
     printf("Size: %d\n", list_size(list2));
     list_printf(list2);
 
     // remove by index when list size is 1
+    printf("Remove index: list2 -> 0\n");
     list_remove_index(list2, 0);
     printf("Size: %d\n", list_size(list2));
     list_printf(list2);
+    printf("Remove index: list2 -> 0\n");
     list_remove_index(list2, 0);
     printf("List2 is empty: %s\n", list_is_empty(list2) ? "true" : "false");
 
