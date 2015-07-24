@@ -12,6 +12,23 @@ List * list_new() {
     return list;
 }
 
+void list_add(List *list, int element) {
+    Node *new = malloc(sizeof(Node));
+    new->value = element;
+    new->next = NULL;
+
+    if (list->size == 0) {
+        new->prev = NULL;
+        list->next = new;
+    } else {
+        new->prev = list->tail;
+        list->tail->next = new;
+    }
+
+    list->tail = new;
+    list->size++;
+}
+
 int main() {
     List *list = list_new();
 
