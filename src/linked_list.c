@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include "linked_list.h"
+#include "list.h"
 
 List* list_new() {
     List *list = malloc(sizeof(List));
