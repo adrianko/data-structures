@@ -40,8 +40,14 @@ void list_printf(List *list) {
 }
 
 int main() {
+    printf("Create new list list\n");
     List *list = list_new();
-    
+    printf("Add: list -> 2\n");
+    list_add(list, 2);
+    printf("Add: list -> 4\n");
+    list_add(list, 4);
+    printf("Add: list -> 6\n");
+    list_add(list, 6);
     list_printf(list);
     return 0;
 }
