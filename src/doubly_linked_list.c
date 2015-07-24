@@ -29,6 +29,15 @@ void list_add(List *list, int element) {
     list->size++;
 }
 
+int list_size(List *list) {
+    return list->size;
+}
+
+bool list_is_empty(List *list) {
+    return list_size(list) == 0;
+}
+
+
 void list_printf(List *list) {
     Node *n = list->next;
     int i = 0;
