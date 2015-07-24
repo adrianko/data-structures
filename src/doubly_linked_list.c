@@ -13,6 +13,7 @@ List * list_new() {
 }
 
 int main() {
+    List *list = list_new();
 
     return 0;
 }
