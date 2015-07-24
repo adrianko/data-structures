@@ -29,8 +29,19 @@ void list_add(List *list, int element) {
     list->size++;
 }
 
+void list_printf(List *list) {
+    Node *n = list->next;
+    int i = 0;
+
+    while (n != NULL) {
+        printf("%d: %d\n", i++, n->value);
+        n = n->next;
+    }
+}
+
 int main() {
     List *list = list_new();
-
+    
+    list_printf(list);
     return 0;
 }
