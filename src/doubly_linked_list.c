@@ -4,7 +4,7 @@
 #include "list.h"
 #include "doubly_linked_list.h"
 
-List * list_new() {
+List * double_list_new() {
     List *list = malloc(sizeof(List));
     list->next = NULL;
     list->size = 0;
