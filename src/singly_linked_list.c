@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "list.h"
-#include "linked_list.h"
+#include "singly_linked_list.h"
 
 List* list_new() {
     List *list = malloc(sizeof(List));
