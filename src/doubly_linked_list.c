@@ -60,6 +60,16 @@ void list_printf(List *list) {
     }
 }
 
+void list_printf_reverse(List *list) {
+    Node *p = list->tail;
+    int i = list_size(list) - 1;
+
+    while (p != NULL) {
+        printf("%d: %d\n", i--, p->value);
+        p = p->prev;
+    }
+}
+
 int list_get(List *list, int index) {
     if (index >= list_size(list) || index < 0) {
         return -1;
@@ -119,6 +129,9 @@ int main() {
     list_add(list, 4);
     printf("Add: list -> 6\n");
     list_add(list, 6);
+    printf("Print list\n");
     list_printf(list);
+    printf("Print list reverse\n");
+    list_printf_reverse(list);
     return 0;
 }
