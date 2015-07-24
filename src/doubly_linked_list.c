@@ -90,6 +90,26 @@ int list_get(List *list, int index) {
     return element;
 }
 
+bool list_equals(List *list1, List *list2) {
+    if (list_size(list1) == list_size(list2)) {
+        return false;
+    }
+
+    Node *l1next = list1->next;
+    Node *l2next = list2->next;
+
+    while (l1next != NULL || l2next != NULL) {
+        if (l1next->value != l2next->value) {
+            return false;
+        }
+
+        l1next = l1next->next;
+        l2next = l2next->next;
+    }
+
+    return true;
+}
+
 int main() {
     printf("Create new list list\n");
     List *list = list_new();
