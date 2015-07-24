@@ -60,6 +60,36 @@ void list_printf(List *list) {
     }
 }
 
+int list_get(List *list, int index) {
+    if (index >= list_size(list) || index < 0) {
+        return -1;
+    }
+
+    if (index == 0) {
+        return list->next->value;
+    }
+
+    if (index == (list_size(list) - 1)) {
+        return list->tail->value;
+    }
+
+    int element = -1;
+    int i = 0;
+    Node *n = list->next;
+
+    while (n != NULL) {
+        if (i == index) {
+            element = n->value;
+            break;
+        }
+
+        i++;
+        n = n->next;
+    }
+
+    return element;
+}
+
 int main() {
     printf("Create new list list\n");
     List *list = list_new();
