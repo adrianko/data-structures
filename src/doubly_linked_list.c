@@ -37,6 +37,18 @@ bool list_is_empty(List *list) {
     return list_size(list) == 0;
 }
 
+void list_add_all(List *dest, List *adding) {
+    if (list_is_empty(adding)) {
+        return;
+    }
+
+    Node *next = adding->next;
+
+    while (next != NULL) {
+        list_add(dest, next->value);
+        next = next->next;
+    }
+}
 
 void list_printf(List *list) {
     Node *n = list->next;
