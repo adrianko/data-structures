@@ -120,6 +120,21 @@ bool list_equals(List *list1, List *list2) {
     return true;
 }
 
+int list_index_of(List *list, int element) {
+    Node *n = list->next;
+    int i = 0;
+
+    while (n != NULL) {
+        if (n->value == element) {
+            return i;
+        }
+
+        i++;
+    }
+
+    return -1;
+}
+
 int main() {
     printf("Create new list list\n");
     List *list = list_new();
